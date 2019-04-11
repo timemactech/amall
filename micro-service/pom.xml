@@ -19,6 +19,7 @@
         <module>user</module>
         <module>item</module>
         <module>order</module>
+        <module>pay</module>
     </modules>
 
     <properties>
