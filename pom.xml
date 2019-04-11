@@ -15,6 +15,7 @@
 
     <modules>
         <module>platform</module>
+        <module>micro-service</module>
     </modules>
 
     <build>
