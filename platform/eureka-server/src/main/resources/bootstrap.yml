@@ -1,5 +1,5 @@
 app:
-  id: eureka-server
+  id: amall-eureka-server
 apollo:
   meta: http://localhost:8080
   cluster: default
@@ -7,6 +7,6 @@ spring:
   application:
     # 由于logback-spring.xml的加载在application.yml之前bootstrap.xml之后
     # 所以当logback需要读取配置文件中的属性时，应该将这些属性配置在bootstrap.yml中
-    name: eureka-server
+    name: amall-eureka-server
 server:
   port: 8761
