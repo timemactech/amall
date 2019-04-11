@@ -17,6 +17,7 @@
 
     <modules>
         <module>user</module>
+        <module>item</module>
     </modules>
 
     <properties>
