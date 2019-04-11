@@ -1,13 +1,13 @@
-package com.timemac.amall.platform.eurekaserver;
+package com.timemac.amall.platform.open.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EurekaServerApplication {
+public class OpenGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplication.class, args);
+        SpringApplication.run(OpenGatewayApplication.class, args);
     }
 
 }
