@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableCircuitBreaker
-@EnableFeignClients(basePackages = "com.timemac.amall.user.api.feign")
+@EnableFeignClients(basePackages = "com.timemac.amall.service.api.feign")
 public class OrderApplication {
 
     public static void main(String[] args) {

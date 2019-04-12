@@ -1,6 +1,6 @@
-package com.timemac.amall.user.api.feign.fallback.factory;
+package com.timemac.amall.service.api.feign.fallback.factory;
 
-import com.timemac.amall.user.api.feign.UserFeignClient;
+import com.timemac.amall.service.api.feign.UserFeignClient;
 import com.timemac.amall.user.api.pojo.bo.UserBO;
 import com.timemac.amall.user.api.pojo.query.UserQuery;
 import com.timemac.amall.user.api.pojo.vo.UserVO;

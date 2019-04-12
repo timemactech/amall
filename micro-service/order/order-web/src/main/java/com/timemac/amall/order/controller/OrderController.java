@@ -1,6 +1,6 @@
 package com.timemac.amall.order.controller;
 
-import com.timemac.amall.user.api.feign.UserFeignClient;
+import com.timemac.amall.service.api.feign.UserFeignClient;
 import com.timemac.amall.user.api.pojo.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
