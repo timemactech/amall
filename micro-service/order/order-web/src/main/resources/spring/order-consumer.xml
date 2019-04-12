@@ -18,32 +18,21 @@
 
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="order-service"/>
-
-    <dubbo:protocol threads="200"/>
+    <dubbo:application name="order-consumer"/>
 
     <!-- use zookeeper registry center to export service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 
     <!-- use dubbo protocol to export service on port 20880 -->
-    <dubbo:protocol name="dubbo" port="20880"/>
+    <!--<dubbo:protocol name="dubbo" port="20880"/>-->
 
-    <!--&lt;!&ndash; service implementation, as same as regular local bean &ndash;&gt;-->
-    <!--<bean id="payService" class="com.timemac.amall.pay.service.PayServiceImpl"/>-->
+    <dubbo:reference id="payService" check="false" interface="com.timemac.amall.pay.api.PayAPI"/>
 
-    <!--&lt;!&ndash; declare the service interface to be exported &ndash;&gt;-->
-    <!--<dubbo:service interface="com.timemac.amall.pay.api.PayAPI" ref="payService" filter="tracing" timeout="300"-->
-    <!--executes="200" retries="2" loadbalance="random" actives="0" id="payAPI"/>-->
-
-    <dubbo:reference id="payService" interface="com.timemac.amall.pay.api.PayAPI"/>
-
-    <!--&lt;!&ndash; service implementation, as same as regular local bean &ndash;&gt;-->
-    <!--<bean id="orderController" class="com.timemac.amall.order.controller.OrderController">-->
-    <!--<property name="payAPI" ref="payService"/>-->
-    <!--</bean>-->
+    <context:component-scan base-package="com.timemac.amall.order.controller"/>
+    <dubbo:annotation package="com.timemac.amall.order.controller"/>
 </beans>

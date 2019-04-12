@@ -23,7 +23,7 @@
        http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
     <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="annotation-provider"/>
+    <dubbo:application name="pay-provider"/>
 
     <!--<dubbo:protocol threads="200"/>-->
 
@@ -34,10 +34,13 @@
     <dubbo:protocol name="dubbo" port="20880"/>
 
     <!-- service implementation, as same as regular local bean -->
+    <bean id="payService" class="com.timemac.amall.pay.service.PayServiceImpl"/>
+
+    <bean id="annotationService" class="com.timemac.amall.pay.service.AnnotationServiceImpl"/>
 
     <dubbo:service interface="com.timemac.amall.pay.api.PayAPI" ref="payService" filter="tracing"/>
+    <dubbo:service interface="com.timemac.amall.pay.api.AnnotationService" ref="annotationService" filter="tracing"/>
 
-    <bean id="payService" class="com.timemac.amall.pay.service.PayServiceImpl"/>
 
     <!-- declare the service interface to be exported -->
     <!--<dubbo:service interface="com.timemac.amall.pay.api.PayAPI" ref="payService" timeout="300"-->

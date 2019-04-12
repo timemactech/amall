@@ -1,14 +1,13 @@
 package com.timemac.amall.order.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.timemac.amall.order.api.OrderAPI;
 import com.timemac.amall.order.api.pojo.vo.OrderVO;
-import com.timemac.amall.order.config.ConsumerConfiguration;
-import com.timemac.amall.pay.api.AnnotationService;
+import com.timemac.amall.pay.api.PayAPI;
 import com.timemac.amall.service.api.feign.ItemFeignClient;
 import com.timemac.amall.service.api.feign.UserFeignClient;
 import com.timemac.amall.user.api.pojo.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,11 +19,11 @@ import java.util.List;
 @Validated
 public class OrderController implements OrderAPI {
 
-    public OrderController() {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
-        context.start();
-        annotationService = (AnnotationService) context.getBean("annotationService");
-    }
+//    public OrderController() {
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConsumerConfiguration.class);
+//        context.start();
+//        annotationService = (AnnotationService) context.getBean("annotationService");
+//    }
 
     @Autowired
     private UserFeignClient userFeignClient;
@@ -32,7 +31,11 @@ public class OrderController implements OrderAPI {
     @Autowired
     private ItemFeignClient itemFeignClient;
 
-    private AnnotationService annotationService;
+//    private AnnotationService annotationService;
+
+
+    @Reference(interfaceName = "payService")
+    private PayAPI payService;
 
     /**
      * 按用户id获取用户
@@ -65,8 +68,10 @@ public class OrderController implements OrderAPI {
         orderVO.setUsername("user name");
         orderVO.setUserVO(userFeignClient.getById(111L));
         orderVO.setItems(itemFeignClient.listByOrderId(121L));
-        orderVO.setTotalPay(annotationService.getTotalPayByOrderId(orderId));
+//        orderVO.setTotalPay(annotationService.getTotalPayByOrderId(orderId));
 
+
+        payService.hello("");
         return orderVO;
     }
 }
