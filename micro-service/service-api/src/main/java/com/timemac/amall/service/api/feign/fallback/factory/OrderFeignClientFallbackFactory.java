@@ -1,12 +1,11 @@
 package com.timemac.amall.service.api.feign.fallback.factory;
 
+import com.timemac.amall.order.api.pojo.vo.OrderVO;
 import com.timemac.amall.service.api.feign.OrderFeignClient;
-import com.timemac.amall.user.api.pojo.bo.UserBO;
-import com.timemac.amall.user.api.pojo.query.UserQuery;
-import com.timemac.amall.user.api.pojo.vo.UserVO;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,28 +18,21 @@ public class OrderFeignClientFallbackFactory implements FallbackFactory<OrderFei
     @Override
     public OrderFeignClient create(Throwable throwable) {
         return new OrderFeignClient() {
+
             @Override
-            public UserVO getById(Long id) {
+            public List<OrderVO> getByUserId(@NotNull(message = "{order.userId.notBlank}") Long userId) throws Exception {
                 return null;
             }
 
+            /**
+             * 按订单id获取订单详情
+             *
+             * @param orderId 订单id
+             * @return 订单详情
+             * @throws Exception 查询异常
+             */
             @Override
-            public List<UserVO> listByQuery(UserQuery query) {
-                return null;
-            }
-
-            @Override
-            public UserVO save(UserBO userBO) {
-                return null;
-            }
-
-            @Override
-            public List<UserVO> batchSave(List<UserBO> userBOList) {
-                return null;
-            }
-
-            @Override
-            public Integer deleteById(Long id) {
+            public OrderVO getOrderDetailsById(String orderId) throws Exception {
                 return null;
             }
         };

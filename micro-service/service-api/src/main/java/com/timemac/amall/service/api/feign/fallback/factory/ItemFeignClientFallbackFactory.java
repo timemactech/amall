@@ -1,12 +1,11 @@
 package com.timemac.amall.service.api.feign.fallback.factory;
 
+import com.timemac.amall.item.pojo.vo.ItemVO;
 import com.timemac.amall.service.api.feign.ItemFeignClient;
-import com.timemac.amall.user.api.pojo.bo.UserBO;
-import com.timemac.amall.user.api.pojo.query.UserQuery;
-import com.timemac.amall.user.api.pojo.vo.UserVO;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -19,28 +18,14 @@ public class ItemFeignClientFallbackFactory implements FallbackFactory<ItemFeign
     @Override
     public ItemFeignClient create(Throwable throwable) {
         return new ItemFeignClient() {
+
             @Override
-            public UserVO getById(Long id) {
+            public ItemVO getById(@NotNull(message = "{id.notNull}") Long id) throws Exception {
                 return null;
             }
 
             @Override
-            public List<UserVO> listByQuery(UserQuery query) {
-                return null;
-            }
-
-            @Override
-            public UserVO save(UserBO userBO) {
-                return null;
-            }
-
-            @Override
-            public List<UserVO> batchSave(List<UserBO> userBOList) {
-                return null;
-            }
-
-            @Override
-            public Integer deleteById(Long id) {
+            public List<ItemVO> listByOrderId(@NotNull(message = "{id.notNull}") Long orderId) throws Exception {
                 return null;
             }
         };

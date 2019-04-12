@@ -3,10 +3,11 @@ package com.timemac.amall.item;
 import com.timemac.amall.item.pojo.vo.ItemVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * @author NickZxing
@@ -17,12 +18,17 @@ import javax.validation.constraints.NotNull;
  * 3、方法级别注解@Validated适用于形参为POJO时
  * 4、校验提示消息详见ValidationMessages.properties文件
  */
-@RestController
 @Validated
+@RequestMapping("/item")
 public interface ItemAPI {
 
-    String GET_BY_ID = "/item/get_by_id";
+    String GET_BY_ID = "/get_by_id";
+    String LIST_BY_Order_ID = "/list";
 
     @GetMapping(value = GET_BY_ID)
     ItemVO getById(@RequestParam(value = "id", required = false) @NotNull(message = "{id.notNull}") Long id) throws Exception;
+
+
+    @GetMapping(value = LIST_BY_Order_ID)
+    List<ItemVO> listByOrderId(@RequestParam(value = "orderId") @NotNull(message = "{id.notNull}") Long orderId) throws Exception;
 }

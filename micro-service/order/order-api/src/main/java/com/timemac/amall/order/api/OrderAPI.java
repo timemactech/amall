@@ -3,8 +3,9 @@ package com.timemac.amall.order.api;
 import com.timemac.amall.order.api.pojo.vo.OrderVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -18,12 +19,24 @@ import java.util.List;
  * 3、方法级别注解@Validated适用于形参为POJO时
  * 4、校验提示消息详见ValidationMessages.properties文件
  */
-@RestController
 @Validated
 public interface OrderAPI {
 
-    String GET_BY_USER_ID = "/order/get_by_user_id";
+    String GET_BY_USER_ID = "/get_by_user_id";
+
+    String GET_BY_ORDER_ID = "/{order_id}";
 
     @GetMapping(value = GET_BY_USER_ID)
     List<OrderVO> getByUserId(@RequestParam(value = "user_id", required = false) @NotNull(message = "{order.userId.notBlank}") Long userId) throws Exception;
+
+
+    /**
+     * 按订单id获取订单详情
+     *
+     * @param orderId 订单id
+     * @return 订单详情
+     * @throws Exception 查询异常
+     */
+    @GetMapping(value = GET_BY_ORDER_ID)
+    OrderVO getOrderDetailsById(@PathVariable(value = "order_id") String orderId) throws Exception;
 }

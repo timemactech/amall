@@ -70,6 +70,12 @@
             <artifactId>apollo-client</artifactId>
             <version>1.3.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.timemac.amall</groupId>
+            <artifactId>item-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

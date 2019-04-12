@@ -18,7 +18,6 @@ import java.util.List;
  * 3、方法级别注解@Validated适用于形参为POJO时
  * 4、校验提示消息详见ValidationMessages.properties文件
  */
-@RestController
 @Validated
 @RequestMapping("/user")
 public interface UserAPI {
