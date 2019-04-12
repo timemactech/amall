@@ -76,7 +76,6 @@
             <groupId>com.timemac.amall</groupId>
             <artifactId>pay-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>

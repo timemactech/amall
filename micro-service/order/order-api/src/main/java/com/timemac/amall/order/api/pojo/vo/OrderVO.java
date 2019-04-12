@@ -25,6 +25,7 @@ public class OrderVO implements Serializable {
     private Integer id;
     private String ordersn;
     private String username;
+    private Float totalPay;
 
     /**
      * 用户信息
