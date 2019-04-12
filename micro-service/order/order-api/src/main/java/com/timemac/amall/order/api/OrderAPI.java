@@ -4,7 +4,6 @@ import com.timemac.amall.order.api.pojo.vo.OrderVO;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.constraints.NotNull;
@@ -38,5 +37,5 @@ public interface OrderAPI {
      * @throws Exception 查询异常
      */
     @GetMapping(value = GET_BY_ORDER_ID)
-    OrderVO getOrderDetailsById(@PathVariable(value = "order_id") String orderId) throws Exception;
+    OrderVO getOrderDetailsById(@PathVariable(value = "order_id") Long orderId) throws Exception;
 }

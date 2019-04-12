@@ -5,7 +5,6 @@ import com.timemac.amall.order.api.pojo.vo.OrderVO;
 import com.timemac.amall.service.api.feign.ItemFeignClient;
 import com.timemac.amall.service.api.feign.UserFeignClient;
 import com.timemac.amall.user.api.pojo.vo.UserVO;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,10 +47,7 @@ public class OrderController implements OrderAPI {
      * @throws Exception 查询异常
      */
     @Override
-    public OrderVO getOrderDetailsById(String orderId) throws Exception {
-        if (StringUtils.isEmpty(orderId)) {
-            return null;
-        }
+    public OrderVO getOrderDetailsById(Long orderId) throws Exception {
         OrderVO orderVO = new OrderVO();
         orderVO.setId(0);
         orderVO.setOrdersn("order sn");

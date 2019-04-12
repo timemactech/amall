@@ -32,7 +32,7 @@ public class OrderFeignClientFallbackFactory implements FallbackFactory<OrderFei
              * @throws Exception 查询异常
              */
             @Override
-            public OrderVO getOrderDetailsById(String orderId) throws Exception {
+            public OrderVO getOrderDetailsById(Long orderId) throws Exception {
                 return null;
             }
         };

@@ -1,9 +1,13 @@
 package com.timemac.amall.user.controller;
 
+import com.timemac.amall.order.api.pojo.vo.OrderVO;
+import com.timemac.amall.service.api.feign.OrderFeignClient;
 import com.timemac.amall.user.api.UserAPI;
 import com.timemac.amall.user.api.pojo.bo.UserBO;
 import com.timemac.amall.user.api.pojo.query.UserQuery;
 import com.timemac.amall.user.api.pojo.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
@@ -11,6 +15,19 @@ import java.util.List;
 
 @RestController
 public class UserController implements UserAPI {
+
+    @Autowired
+    private OrderFeignClient orderFeignClient;
+
+    @GetMapping(value = "test")
+    public OrderVO get() {
+        try {
+            return orderFeignClient.getOrderDetailsById(111L);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     /**
      * 按用户id获取用户

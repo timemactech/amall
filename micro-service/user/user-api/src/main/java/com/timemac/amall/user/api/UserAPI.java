@@ -4,7 +4,10 @@ import com.timemac.amall.user.api.pojo.bo.UserBO;
 import com.timemac.amall.user.api.pojo.query.UserQuery;
 import com.timemac.amall.user.api.pojo.vo.UserVO;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -19,7 +22,6 @@ import java.util.List;
  * 4、校验提示消息详见ValidationMessages.properties文件
  */
 @Validated
-@RequestMapping("/user")
 public interface UserAPI {
 
     String GET_BY_ID = "/get_by_id";
