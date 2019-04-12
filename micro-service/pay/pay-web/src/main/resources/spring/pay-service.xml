@@ -25,6 +25,8 @@
     <!-- provider's application name, used for tracing dependency relationship -->
     <dubbo:application name="hello-service-provider"/>
 
+    <dubbo:protocol threads="200"/>
+
     <!-- use zookeeper registry center to export service -->
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 
@@ -36,7 +38,7 @@
 
     <!-- declare the service interface to be exported -->
     <dubbo:service interface="com.timemac.amall.pay.api.PayAPI" ref="payService" filter="tracing" timeout="300"
-                   retries="2" loadbalance="random" actives="0"/>
+                   executes="200" retries="2" loadbalance="random" actives="0"/>
 
     <!-- zipkin configuration -->
     <bean id="sender" class="zipkin2.reporter.beans.OkHttpSenderFactoryBean">
