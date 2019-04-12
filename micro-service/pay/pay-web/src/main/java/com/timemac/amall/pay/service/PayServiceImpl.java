@@ -7,6 +7,6 @@ import com.timemac.amall.pay.api.PayAPI;
 public class PayServiceImpl implements PayAPI {
     @Override
     public String hello(String message) {
-        return null;
+        return "annotation: hello, " + message;
     }
 }

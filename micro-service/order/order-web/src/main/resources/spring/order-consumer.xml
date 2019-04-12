@@ -1,0 +1,49 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--&lt;!&ndash;-->
+  <!--Licensed to the Apache Software Foundation (ASF) under one or more-->
+  <!--contributor license agreements.  See the NOTICE file distributed with-->
+  <!--this work for additional information regarding copyright ownership.-->
+  <!--The ASF licenses this file to You under the Apache License, Version 2.0-->
+  <!--(the "License"); you may not use this file except in compliance with-->
+  <!--the License.  You may obtain a copy of the License at-->
+
+      <!--http://www.apache.org/licenses/LICENSE-2.0-->
+
+  <!--Unless required by applicable law or agreed to in writing, software-->
+  <!--distributed under the License is distributed on an "AS IS" BASIS,-->
+  <!--WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+  <!--See the License for the specific language governing permissions and-->
+  <!--limitations under the License.-->
+  <!--&ndash;&gt;-->
+
+<!--<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"-->
+       <!--xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+       <!--http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">-->
+
+    <!--&lt;!&ndash; provider's application name, used for tracing dependency relationship &ndash;&gt;-->
+    <!--<dubbo:application name="order-service"/>-->
+
+    <!--<dubbo:protocol threads="200"/>-->
+
+    <!--&lt;!&ndash; use zookeeper registry center to export service &ndash;&gt;-->
+    <!--<dubbo:registry address="zookeeper://127.0.0.1:2181"/>-->
+
+    <!--&lt;!&ndash; use dubbo protocol to export service on port 20880 &ndash;&gt;-->
+    <!--<dubbo:protocol name="dubbo" port="20880"/>-->
+
+    <!--&lt;!&ndash;&lt;!&ndash; service implementation, as same as regular local bean &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="payService" class="com.timemac.amall.pay.service.PayServiceImpl"/>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;&lt;!&ndash; declare the service interface to be exported &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<dubbo:service interface="com.timemac.amall.pay.api.PayAPI" ref="payService" filter="tracing" timeout="300"&ndash;&gt;-->
+    <!--&lt;!&ndash;executes="200" retries="2" loadbalance="random" actives="0" id="payAPI"/>&ndash;&gt;-->
+
+    <!--<dubbo:reference id="payService" interface="com.timemac.amall.pay.api.PayAPI"/>-->
+
+    <!--&lt;!&ndash;&lt;!&ndash; service implementation, as same as regular local bean &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<bean id="orderController" class="com.timemac.amall.order.controller.OrderController">&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="payAPI" ref="payService"/>&ndash;&gt;-->
+    <!--&lt;!&ndash;</bean>&ndash;&gt;-->
+<!--</beans>-->

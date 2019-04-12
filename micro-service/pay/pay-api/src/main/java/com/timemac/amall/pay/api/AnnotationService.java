@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Service
-public interface PayAPI {
-    String hello(String message);
+public interface AnnotationService {
+    String sayHello(String name);
 }

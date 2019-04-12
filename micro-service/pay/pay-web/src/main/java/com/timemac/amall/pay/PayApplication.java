@@ -2,10 +2,11 @@ package com.timemac.amall.pay;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
+//@EnableDubbo(scanBasePackages = "com.timemac.amall.pay.service.**")
+//@EnableDubbo
 public class PayApplication {
 
     public static void main(String[] args) {
