@@ -9,4 +9,9 @@ public class PayServiceImpl implements PayAPI {
     public String hello(String message) {
         return "annotation: hello, " + message;
     }
+
+    @Override
+    public Float getTotalPayByOrderId(Long orderId) {
+        return Float.valueOf(123.13F);
+    }
 }

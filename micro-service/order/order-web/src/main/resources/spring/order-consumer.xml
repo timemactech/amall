@@ -33,6 +33,6 @@
 
     <dubbo:reference id="payService" check="false" interface="com.timemac.amall.pay.api.PayAPI"/>
 
-    <context:component-scan base-package="com.timemac.amall.order.controller"/>
-    <dubbo:annotation package="com.timemac.amall.order.controller"/>
+    <!--<context:component-scan base-package="com.timemac.amall.order.controller"/>-->
+    <!--<dubbo:annotation package="com.timemac.amall.order.controller"/>-->
 </beans>
